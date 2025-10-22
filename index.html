@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Me quele o no me quele?</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(45deg, #ffb6c1, #ffc0cb, #ff69b4);
+        background-size: 400% 400%;
+        animation: fondo 8s ease infinite;
+        color: #fff;
+        text-align: center;
+    }
+
+    @keyframes fondo {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+        font-size: 2em;
+        animation: flotar 2s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .botones {
+        margin-top: 30px;
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        padding: 12px 30px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    #btnSi {
+        background-color: #ff1493;
+        color: white;
+    }
+
+    #btnNo {
+        background-color: #555;
+        color: white;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+<body>
+
+<h1>¿Me quele o no me quele?</h1>
+
+<div class="botones">
+    <button id="btnSi">SI 💖</button>
+    <button id="btnNo">NO 😢</button>
+</div>
+
+<script>
+    // Al hacer clic en "SI"
+    document.getElementById("btnSi").addEventListener("click", function() {
+        const nuevaVentana = window.open("", "_blank", "width=600,height=400");
+        nuevaVentana.document.write(`
+            <html>
+            <head>
+            <title>Te amo</title>
+            <style>
+                body {
+                    margin: 0;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: linear-gradient(45deg, #ff69b4, #ffb6c1, #ffc0cb);
+                    background-size: 400% 400%;
+                    animation: fondo 6s ease infinite;
+                    color: white;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1.8em;
+                    text-align: center;
+                }
+                @keyframes fondo {
+                    0% {background-position: 0% 50%;}
+                    50% {background-position: 100% 50%;}
+                    100% {background-position: 0% 50%;}
+                }
+                h1 {
+                    animation: flotar 2s ease-in-out infinite;
+                }
+                @keyframes flotar {
+                    0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}
+                }
+            </style>
+            </head>
+            <body>
+                <h1>¡Te amo Muchisímo Jeane, mi Rosadita Hermosa! 💞</h1>
+            </body>
+            </html>
+        `);
+    });
+
+    // Al hacer clic en "NO"
+    document.getElementById("btnNo").addEventListener("click", function() {
+        const nuevaVentana = window.open("", "_blank", "width=500,height=300");
+        nuevaVentana.document.write(`
+            <html>
+            <head>
+            <title>¿Segura?</title>
+            <style>
+                body {
+                    margin: 0;
+                    height: 100vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: linear-gradient(45deg, #555, #999);
+                    color: white;
+                    font-family: 'Poppins', sans-serif;
+                    text-align: center;
+                }
+                h2 { animation: parpadeo 1s infinite; }
+                @keyframes parpadeo {
+                    0%,100%{opacity:1;}50%{opacity:0.4;}
+                }
+            </style>
+            </head>
+            <body>
+                <h2>¿Estás segura que no me queles? 😢</h2>
+                <script>
+                    setTimeout(() => { window.close(); }, 6000);
+                </script>
+            </body>
+            </html>
+        `);
+
+        // Después de 6 segundos regresa a la página principal
+        setTimeout(() => {
+            window.location.reload();
+        }, 6000);
+    });
+</script>
+
+</body>
+</html>
